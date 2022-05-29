@@ -14,9 +14,16 @@ object Form1: TForm1
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
+  object Label4: TLabel
+    Left = 60
+    Top = 107
+    Width = 38
+    Height = 13
+    Caption = 'Prompt:'
+  end
   object btnRun: TBitBtn
-    Left = 128
-    Top = 192
+    Left = 112
+    Top = 184
     Width = 75
     Height = 25
     Caption = 'btnRun'
@@ -28,19 +35,19 @@ object Form1: TForm1
     Top = 72
     Width = 185
     Height = 161
-    TabOrder = 1
+    TabOrder = 2
   end
   object edtPrompt: TEdit
-    Left = 40
-    Top = 72
-    Width = 417
+    Left = 112
+    Top = 104
+    Width = 297
     Height = 21
-    TabOrder = 2
+    TabOrder = 1
     Text = 'Give me three trivia questions regarding outer space'
   end
   object pnlLogin: TPanel
-    Left = 746
-    Top = 504
+    Left = 704
+    Top = 485
     Width = 780
     Height = 521
     TabOrder = 3

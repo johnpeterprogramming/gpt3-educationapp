@@ -36,11 +36,23 @@ implementation
 {$R *.dfm}
 
 procedure TForm2.FormCreate(Sender: TObject);
+var apiTextFile : TextFile;
+sApiKey, sFileLocation : string;
 begin
+
+sFileLocation := 'apikey.txt';
+assignFile(apiTextFile, sFileLocation);
+reset(apiTextFile);
+readln(apiTextFile, sApiKey);
+
+HTTPBasicAuthenticator1.Password := sApiKey;
+
+
 bodyExists := False;
+
 end;
 
-function TForm2.handleRequest(prompt, temperature, max_tokens : String): String;
+function TForm2.handleRequest(prompt, temperature, max_tokens: String): String;
 var
 jValue : TJSONValue;
 promptString : String;

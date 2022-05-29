@@ -20,6 +20,7 @@ type
     edtPassword: TEdit;
     Label1: TLabel;
     Label2: TLabel;
+    Label4: TLabel;
     procedure btnRunClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnLoginClick(Sender: TObject);

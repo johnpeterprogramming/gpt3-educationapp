@@ -34,7 +34,6 @@ object Form2: TForm2
     Top = 240
   end
   object HTTPBasicAuthenticator1: THTTPBasicAuthenticator
-    Password = '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'
     Left = 280
     Top = 72
   end
