@@ -1,7 +1,4 @@
-﻿[btnRun]
-Coordinates=156,10,50,51
-
-[Form2.HTTPBasicAuthenticator1]
+﻿[Form2.HTTPBasicAuthenticator1]
 Coordinates=507,1,175,87
 
 [Form2.RESTRequest1]
@@ -14,9 +11,6 @@ Coordinates=351,89,110,69
 Coordinates=182,80,131,303
 
 []
-Coordinates=92,10,54,51
-
-[memJson]
 Coordinates=50,80,53,51
 
 [Form2.]

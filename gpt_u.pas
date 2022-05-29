@@ -10,38 +10,47 @@ uses
   Vcl.Grids, Vcl.DBGrids;
 
 type
-  TForm1 = class(TForm)
-    btnRun: TBitBtn;
-    memJson: TMemo;
-    edtPrompt: TEdit;
+  TwelcomeForm = class(TForm)
     pnlLogin: TPanel;
     btnLogin: TBitBtn;
     edtUsername: TEdit;
     edtPassword: TEdit;
     Label1: TLabel;
     Label2: TLabel;
-    Label4: TLabel;
+    lblWelcome: TLabel;
+    btnStudent: TBitBtn;
+    btnAdmin: TBitBtn;
     procedure btnRunClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnLoginClick(Sender: TObject);
+    procedure btnAdminClick(Sender: TObject);
+    procedure btnStudentClick(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
-    loggedUser : string;
+    sUsername, sUserType : string;
+    iScoresID : integer;
   end;
 
 var
-  Form1: TForm1;
+  welcomeForm: TwelcomeForm;
 
 implementation
 
 {$R *.dfm}
 
-uses requests_u, dmUsers_u;
+uses requests_u, dmUsers_u, admin_u, student_u;
 
 
-procedure TForm1.btnLoginClick(Sender: TObject);
+procedure TwelcomeForm.btnAdminClick(Sender: TObject);
+begin
+
+adminForm.Show;
+welcomeForm.Hide;
+end;
+
+procedure TwelcomeForm.btnLoginClick(Sender: TObject);
 var
 sUsername, sPassword : string;
 bLoggedIn : boolean;
@@ -58,6 +67,11 @@ begin
     if (tblUsers['Username'] = sUsername) and (tblUsers['Password'] = sPassword) then
     begin
       bLoggedIn := true;
+      sUsername := tblUsers['Username'];
+      sUserType := tblUsers['Usertype'];
+      // Only Students have scores
+      if sUserType = 'S' then
+        iScoresID := tblUsers['ScoresID'];
       break;
     end;
 
@@ -69,31 +83,48 @@ end;
 
 if bLoggedIn then
 begin
-  showmessage('You have been logged in');
   pnlLogin.Hide;
+
+  if sUserType = 'S' then
+    btnStudent.Visible := true
+  else
+    btnAdmin.Visible := true;
+
+  lblWelcome.visible := true;
+  lblWelcome.Caption := 'Welcome ' + sUsername;
 end
 else
   showmessage('Incorrect Username or Password');
 
 end;
 
-procedure TForm1.btnRunClick(Sender: TObject);
-var sInput, bruh : String;
-  I: Integer;
+procedure TwelcomeForm.btnRunClick(Sender: TObject);
+var sInput, sRequestOutput : String;
 begin
-
-sInput := edtPrompt.Text;
-//showmessage(sPrompt);
-bruh := requests_u.Form2.handleRequest(sInput, '0', '100');
-memJson.Lines.Clear;
-memJson.Lines.Add(bruh);
+//
+//sInput := edtPrompt.Text;
+//sRequestOutput := requests_u.Form2.handleRequest(sInput, '0', '100');
+//memJson.Lines.Clear;
+//memJson.Lines.Add(sRequestOutput);
 
 end;
 
-procedure TForm1.FormCreate(Sender: TObject);
+procedure TwelcomeForm.btnStudentClick(Sender: TObject);
+begin
+showmessage('Student button clicked');
+end;
+
+procedure TwelcomeForm.FormCreate(Sender: TObject);
+var blue, turquoise : TColor;
 begin
 pnlLogin.Top := 0;
 pnlLogin.Left := 0;
+blue := TColor(RGB(0,32,63));
+turquoise := TColor(RGB(173,239,209));
+
+welcomeForm.Color := turquoise;
+lblWelcome.Color := turquoise;
+lblWelcome.Font.Color := blue;
 end;
 
 end.
