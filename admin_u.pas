@@ -5,17 +5,20 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Buttons, Data.DB,
-  Vcl.Grids, Vcl.DBGrids;
+  Vcl.Grids, Vcl.DBGrids, Vcl.ExtCtrls;
 
 type
   TadminForm = class(TForm)
     Label1: TLabel;
     DBGridUsers: TDBGrid;
     btnAddUser: TBitBtn;
+    btnCount: TBitBtn;
+    rdgUserTypes: TRadioGroup;
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnAddUserClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure btnCountClick(Sender: TObject);
   private
     { Private declarations }
     procedure showTable;
@@ -37,8 +40,8 @@ var
 sUsername, sPassword, sUsertype : string;
 begin
 sUsername := inputbox('Add User', 'Enter Username?', 'Bob');
-sPassword := inputbox('Add User', 'Enter Surname?', 'bobspassword');
-sUsertype := inputbox('Add User', 'Enter Surname?', 'S');
+sPassword := inputbox('Add User', 'Enter Password?', 'bobspassword');
+sUsertype := inputbox('Add User', 'Student or Admin(S or A)?', 'S');
 
 
 with DataModuleUsers do
@@ -54,6 +57,35 @@ tblUsers.Post;
 end;
 
 showTable;
+
+end;
+
+procedure TadminForm.btnCountClick(Sender: TObject);
+var
+sUserType : string;
+begin
+if rdgUserTypes.ItemIndex = 0 then
+  sUserType := 'A'
+else if rdgUserTypes.ItemIndex = 1 then
+  sUserType := 'S'
+else
+begin
+  showmessage('No user type selected from radio group. Select either Student or Admin.');
+  Exit;
+end;
+
+with DataModuleUsers do
+  begin
+  qryUsers.Close;
+  qryUsers.SQL.Clear;
+  qryUsers.SQL.Add('select count(*) as CountUserType from Users where UserType = ' + quotedstr(sUserType));
+  qryUsers.Open;
+
+  showmessage('Amount of ' + rdgUserTypes.Items[rdgUserTypes.ItemIndex] + 's: ' + qryUsers.fieldbyname('CountUserType').asString);
+
+  showTable;
+  end;
+
 
 end;
 

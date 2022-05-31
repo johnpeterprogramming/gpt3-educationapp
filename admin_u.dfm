@@ -44,4 +44,24 @@ object adminForm: TadminForm
     TabOrder = 1
     OnClick = btnAddUserClick
   end
+  object btnCount: TBitBtn
+    Left = 456
+    Top = 336
+    Width = 75
+    Height = 25
+    Caption = 'Count by:'
+    TabOrder = 2
+    OnClick = btnCountClick
+  end
+  object rdgUserTypes: TRadioGroup
+    Left = 567
+    Top = 288
+    Width = 185
+    Height = 105
+    Caption = 'User Types'
+    Items.Strings = (
+      'Admin'
+      'Student')
+    TabOrder = 3
+  end
 end
