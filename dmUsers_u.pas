@@ -15,6 +15,7 @@ type
     conUsers : TADOConnection;
     tblUsers : TADOTable;
     dsUsers : TDataSource;
+    qryUsers : TADOQuery;
 
   end;
 
@@ -29,22 +30,25 @@ implementation
 
 procedure TDataModuleUsers.DataModuleCreate(Sender: TObject);
 begin
-// Instantiate objects
 conUsers := TADOConnection.Create( DataModuleUsers );
 tblUsers := TADOTable.Create( DataModuleUsers );
 dsUsers := TDataSource.Create( DataModuleUsers );
+qryUsers := TADOQuery.Create( DataModuleUsers );
 
-// Setup connection to Users database
 conUsers.ConnectionString := 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=Users.mdb;Mode=ReadWrite;Persist Security Info=False';
 conUsers.LoginPrompt := false;
 conUsers.Open;
 
-// Setup tables
+// Setup tables and query
 tblUsers.Connection := conUsers;
 tblUsers.TableName := 'Users';
 
+qryUsers.Connection := conUsers;
+//qryUsers.DataSource := dsUsers;
+
 // Setup Datasource
-dsUsers.DataSet := tblUsers;
+//dsUsers.DataSet := tblUsers;
+dsUsers.DataSet := qryUsers;
 
 tblUsers.Open;
 

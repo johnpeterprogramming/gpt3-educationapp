@@ -11,20 +11,23 @@ object adminForm: TadminForm
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel
-    Left = 328
-    Top = 56
+    Left = 344
+    Top = 8
     Width = 56
     Height = 13
     Caption = 'Admin Form'
   end
-  object DBGrid1: TDBGrid
-    Left = 208
-    Top = 200
-    Width = 320
-    Height = 120
+  object DBGridUsers: TDBGrid
+    Left = 112
+    Top = 35
+    Width = 521
+    Height = 185
     TabOrder = 0
     TitleFont.Charset = DEFAULT_CHARSET
     TitleFont.Color = clWindowText
@@ -32,14 +35,13 @@ object adminForm: TadminForm
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
   end
-  object BitBtn1: TBitBtn
-    Left = 264
-    Top = 376
-    Width = 75
+  object btnAddUser: TBitBtn
+    Left = 80
+    Top = 280
+    Width = 89
     Height = 25
-    Kind = bkAbort
-    NumGlyphs = 2
+    Caption = 'Add New User'
     TabOrder = 1
-    OnClick = BitBtn1Click
+    OnClick = btnAddUserClick
   end
 end

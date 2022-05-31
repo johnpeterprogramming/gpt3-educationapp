@@ -99,7 +99,7 @@ else
 end;
 
 procedure TwelcomeForm.btnRunClick(Sender: TObject);
-var sInput, sRequestOutput : String;
+//var sInput, sRequestOutput : String;
 begin
 //
 //sInput := edtPrompt.Text;
@@ -111,7 +111,8 @@ end;
 
 procedure TwelcomeForm.btnStudentClick(Sender: TObject);
 begin
-showmessage('Student button clicked');
+studentForm.Show;
+welcomeForm.Hide;
 end;
 
 procedure TwelcomeForm.FormCreate(Sender: TObject);

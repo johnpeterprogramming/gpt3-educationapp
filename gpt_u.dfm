@@ -30,8 +30,6 @@ object welcomeForm: TwelcomeForm
     ParentFont = False
     Transparent = False
     Visible = False
-    ExplicitLeft = 40
-    ExplicitTop = 120
     ExplicitWidth = 482
     ExplicitHeight = 81
   end
