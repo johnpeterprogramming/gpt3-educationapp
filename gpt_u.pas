@@ -69,9 +69,6 @@ begin
       bLoggedIn := true;
       sUsername := tblUsers['Username'];
       sUserType := tblUsers['Usertype'];
-      // Only Students have scores
-      if sUserType = 'S' then
-        iScoresID := tblUsers['ScoresID'];
       break;
     end;
 

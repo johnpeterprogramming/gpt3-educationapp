@@ -47,9 +47,7 @@ readln(apiTextFile, sApiKey);
 
 HTTPBasicAuthenticator1.Password := sApiKey;
 
-
 bodyExists := False;
-
 end;
 
 function TForm2.handleRequest(prompt, temperature, max_tokens: String): String;
@@ -57,8 +55,8 @@ var
 jValue : TJSONValue;
 promptString : String;
 begin
-promptString := '{"prompt" : "' + prompt + '", "temperature": ' + temperature  +', "max_tokens": ' + max_tokens + '}';
-
+promptString := '{"prompt" : ' + quotedstr(prompt) + ', "temperature": ' + temperature  +', "max_tokens": ' + max_tokens + '}';
+showmessage(promptString);
 RESTRequest1.ClearBody;
 RESTRequest1.AddBody(promptString, TRESTContentType.ctAPPLICATION_JSON);
 

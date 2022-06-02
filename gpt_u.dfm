@@ -67,8 +67,8 @@ object welcomeForm: TwelcomeForm
   end
   object pnlLogin: TPanel
     Tag = 1
-    Left = 728
-    Top = 485
+    Left = 736
+    Top = 493
     Width = 780
     Height = 521
     TabOrder = 0
@@ -101,7 +101,7 @@ object welcomeForm: TwelcomeForm
       Width = 153
       Height = 21
       TabOrder = 1
-      Text = 'Admin'
+      Text = 'Johna'
     end
     object edtPassword: TEdit
       Left = 304
@@ -111,7 +111,7 @@ object welcomeForm: TwelcomeForm
       ParentShowHint = False
       ShowHint = False
       TabOrder = 2
-      Text = 'password'
+      Text = '1234'
     end
   end
 end

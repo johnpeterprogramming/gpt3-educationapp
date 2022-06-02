@@ -35,33 +35,88 @@ object adminForm: TadminForm
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
   end
-  object btnAddUser: TBitBtn
-    Left = 80
-    Top = 280
-    Width = 89
-    Height = 25
-    Caption = 'Add New User'
-    TabOrder = 1
-    OnClick = btnAddUserClick
-  end
-  object btnCount: TBitBtn
-    Left = 456
-    Top = 336
-    Width = 75
-    Height = 25
-    Caption = 'Count by:'
-    TabOrder = 2
-    OnClick = btnCountClick
-  end
-  object rdgUserTypes: TRadioGroup
-    Left = 567
-    Top = 288
+  object pnlManage: TPanel
+    Left = 47
+    Top = 264
     Width = 185
-    Height = 105
-    Caption = 'User Types'
-    Items.Strings = (
-      'Admin'
-      'Student')
-    TabOrder = 3
+    Height = 113
+    TabOrder = 1
+    object Label2: TLabel
+      Left = 9
+      Top = 0
+      Width = 72
+      Height = 13
+      Caption = 'Manage Users:'
+    end
+    object btnAddUser: TBitBtn
+      Left = 9
+      Top = 49
+      Width = 89
+      Height = 25
+      Caption = 'Add New User'
+      TabOrder = 0
+      OnClick = btnAddUserClick
+    end
+    object btnRemoveUser: TBitBtn
+      Left = 9
+      Top = 80
+      Width = 89
+      Height = 25
+      Caption = 'Remove User'
+      TabOrder = 1
+      OnClick = btnRemoveUserClick
+    end
+  end
+  object pnlRetrieveData: TPanel
+    Left = 432
+    Top = 244
+    Width = 265
+    Height = 153
+    TabOrder = 2
+    object Label3: TLabel
+      Left = 8
+      Top = 8
+      Width = 67
+      Height = 13
+      Caption = 'Retrieve Data'
+    end
+    object btnCount: TBitBtn
+      Left = 168
+      Top = 17
+      Width = 90
+      Height = 25
+      Caption = 'Count User Type'
+      TabOrder = 0
+      OnClick = btnCountClick
+    end
+    object rdgUserTypes: TRadioGroup
+      Left = 176
+      Top = 48
+      Width = 73
+      Height = 89
+      Caption = 'User Types'
+      Items.Strings = (
+        'Admin'
+        'Student')
+      TabOrder = 1
+    end
+    object BitBtn1: TBitBtn
+      Left = 0
+      Top = 40
+      Width = 75
+      Height = 25
+      Caption = 'Show Score'
+      TabOrder = 2
+      OnClick = BitBtn1Click
+    end
+    object BitBtn2: TBitBtn
+      Left = 0
+      Top = 71
+      Width = 75
+      Height = 25
+      Caption = 'Rapport Card'
+      TabOrder = 3
+      OnClick = BitBtn2Click
+    end
   end
 end
