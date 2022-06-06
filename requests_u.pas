@@ -55,8 +55,7 @@ var
 jValue : TJSONValue;
 promptString : String;
 begin
-promptString := '{"prompt" : ' + quotedstr(prompt) + ', "temperature": ' + temperature  +', "max_tokens": ' + max_tokens + '}';
-showmessage(promptString);
+promptString := '{"prompt" : "' + prompt + '", "temperature": ' + temperature  +', "max_tokens": ' + max_tokens + '}';
 RESTRequest1.ClearBody;
 RESTRequest1.AddBody(promptString, TRESTContentType.ctAPPLICATION_JSON);
 
