@@ -16,7 +16,7 @@ object Form2: TForm2
   TextHeight = 13
   object RESTClient1: TRESTClient
     Authenticator = HTTPBasicAuthenticator1
-    BaseURL = 'https://api.openai.com/v1/engines/text-davinci-002/completions'
+    BaseURL = 'https://api.openai.com/v1/engines/text-davinci-001/completions'
     Params = <>
     Left = 144
     Top = 72

@@ -29,21 +29,13 @@ object studentForm: TstudentForm
     TabOrder = 0
     Text = 'edtAnswer1'
   end
-  object edtSubject: TEdit
-    Left = 376
-    Top = 64
-    Width = 121
-    Height = 21
-    TabOrder = 1
-    Text = 'edtSubject'
-  end
   object btnSubmit: TBitBtn
     Left = 312
     Top = 424
     Width = 75
     Height = 25
     Caption = 'Submit'
-    TabOrder = 2
+    TabOrder = 1
   end
   object btnGenerate: TBitBtn
     Left = 176
@@ -51,7 +43,7 @@ object studentForm: TstudentForm
     Width = 121
     Height = 35
     Caption = 'Generate Questions'
-    TabOrder = 3
+    TabOrder = 2
     OnClick = btnGenerateClick
   end
   object btnStart: TBitBtn
@@ -60,7 +52,7 @@ object studentForm: TstudentForm
     Width = 75
     Height = 25
     Caption = 'Start'
-    TabOrder = 4
+    TabOrder = 3
     OnClick = btnStartClick
   end
   object memJson: TMemo
@@ -70,6 +62,18 @@ object studentForm: TstudentForm
     Height = 89
     Lines.Strings = (
       'memJson')
+    TabOrder = 4
+  end
+  object cmbSubject: TComboBox
+    Left = 168
+    Top = 181
+    Width = 145
+    Height = 21
     TabOrder = 5
+    Text = 'Select Subject'
+    Items.Strings = (
+      'Maths'
+      'Science'
+      'English')
   end
 end
